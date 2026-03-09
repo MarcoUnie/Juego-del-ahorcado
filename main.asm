@@ -22,6 +22,13 @@
     ret
     read_letter endp
 
+    print_letter proc
+    mov dl, input
+    mov ah, 02h
+    int 21h
+    ret
+    print_letter endp
+
 main proc
     mov ax, @data
     mov ds, ax
