@@ -5,7 +5,8 @@
     msg db "Juego del Ahorcado$", 13, 10
     newline db 13,10,"$"
     input db ?
-    
+    secret db "GATO$"
+    masked db "____$"
 
 .code
     print_newline proc
