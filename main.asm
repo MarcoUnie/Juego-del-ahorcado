@@ -30,6 +30,13 @@
     ret
     print_letter endp
 
+    print_masked proc
+    mov dx, offset masked
+    mov ah, 09h
+    int 21h
+    ret
+    print_masked endp
+
 main proc
     mov ax, @data
     mov ds, ax
@@ -40,6 +47,8 @@ main proc
 
     mov ah, 4Ch
     int 21h
+
+    call print_masked
 
 main endp
 end main
