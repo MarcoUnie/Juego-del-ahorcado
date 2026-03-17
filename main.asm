@@ -7,6 +7,7 @@
     input db ?
     secret db "GATO$"
     masked db "____$"
+    attempts db 6
 
 .code
     print_newline proc
