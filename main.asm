@@ -38,6 +38,15 @@
     ret
     print_masked endp
 
+    print_attempts proc
+    mov al, attempts
+    add al, 30h
+    mov dl, al
+    mov ah, 02h
+    int 21h
+    ret
+    print_attempts endp
+
 main proc
     mov ax, @data
     mov ds, ax
