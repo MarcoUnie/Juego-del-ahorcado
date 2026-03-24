@@ -10,6 +10,25 @@
     attempts db 6
 
 .code
+    check_letter proc
+    mov si, offset secret
+    mov di, offset masked
+    mov cx, 4
+
+compare_loop:
+    mov al, [si]
+    cmp al, input
+    jne skip
+
+    mov [di], al
+
+skip:
+    inc si
+    inc di
+    loop compare_loop
+
+    ret
+check_letter endp
     print_newline proc
     mov dx, offset newline
     mov ah, 09h
