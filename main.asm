@@ -8,12 +8,14 @@
     secret db "GATO$"
     masked db "____$"
     attempts db 6
+    found db 0
 
 .code
     check_letter proc
     mov si, offset secret
     mov di, offset masked
     mov cx, 4
+    mov found, 0
 
 compare_loop:
     mov al, [si]
@@ -21,13 +23,22 @@ compare_loop:
     jne skip
 
     mov [di], al
+    mov found, 0
+
 
 skip:
     inc si
     inc di
     loop compare_loop
 
+    cmp found, 1
+    je end_check
+
+    dec attempts
+    
+end_check:
     ret
+
 check_letter endp
     print_newline proc
     mov dx, offset newline
