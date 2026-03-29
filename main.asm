@@ -76,6 +76,17 @@ check_letter endp
     int 21h
     ret
     print_attempts endp
+draw_hangman proc
+    cmp attempts, 5
+    jne no_head
+
+    mov dx, offset head
+    mov ah, 09h
+    int 21h
+
+no_head:
+    ret
+draw_hangman endp
 
 main proc
     mov ax, @data
