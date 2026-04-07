@@ -9,6 +9,7 @@
     masked db "____$"
     attempts db 6
     found db 0
+    body db "  |",13,10,"$"
 
 .code
     check_letter proc
@@ -76,6 +77,7 @@ check_letter endp
     int 21h
     ret
     print_attempts endp
+
 draw_hangman proc
     cmp attempts, 5
     jne no_head
@@ -85,6 +87,15 @@ draw_hangman proc
     int 21h
 
 no_head:
+    cmp attempts, 4
+    jne no_body
+
+    mov dx, offset body
+    mov ah, 09h
+    int 21h
+
+no_body:
+    
     ret
 draw_hangman endp
 
