@@ -2,7 +2,7 @@
 .stack 100h
 
 .data
-    msg db "Juego del Ahorcado$", 13, 10
+    msg db "Juego del Ahorcado$", 13, 10; variable del mensaje
     newline db 13,10,"$"
     input db ?
     secret db "GATO$"
