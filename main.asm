@@ -10,6 +10,7 @@
     attempts db 6
     found db 0
     body db "  |",13,10,"$"
+    arms db " /|\ ",13,10,"$"
 
 .code
     check_letter proc
