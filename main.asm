@@ -12,8 +12,28 @@
     body db "  |",13,10,"$"
     arms db " /|\ ",13,10,"$"
     legs db " / \ ",13,10,"$"
+    win_msg db "GANASTE!$",13,10
 
 .code
+check_win proc
+    mov si, offset masked
+    mov cx, 4
+
+win_loop:
+    mov al, [si]
+    cmp al, '_'
+    je not_win
+    inc si
+    loop win_loop
+
+    mov dx, offset win_msg
+    mov ah, 09h
+    int 21h
+
+not_win:
+    ret
+check_win endp
+
     check_letter proc
     mov si, offset secret
     mov di, offset masked
