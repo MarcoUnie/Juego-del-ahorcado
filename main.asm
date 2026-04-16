@@ -13,6 +13,15 @@
     arms db " /|\ ",13,10,"$"
     legs db " / \ ",13,10,"$"
     win_msg db "GANASTE!$",13,10
+    lose_msg db "PERDISTE!$",13,10
+
+game_loop:
+    cmp attempts, 0
+    jne continue_game
+
+    mov dx, offset lose_msg
+    mov ah, 09h
+    int 21h
 
 .code
 check_win proc
