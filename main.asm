@@ -142,6 +142,16 @@ main proc
     int 21h
 
     call print_masked
-
+    game_loop:
+    
+    call print_masked
+    call print_newline
+    call read_letter
+    call check_letter
+    call draw_hangman
+    call check_win
+    
+    cmp attempts, 0
+    jne game_loop
 main endp
 end main
