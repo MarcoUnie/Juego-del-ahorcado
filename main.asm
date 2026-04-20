@@ -14,6 +14,8 @@
     legs db " / \ ",13,10,"$"
     win_msg db "GANASTE!$",13,10
     lose_msg db "PERDISTE!$",13,10
+    used_letters db 10 dup('$')
+    used_index db 0
 
 game_loop:
     cmp attempts, 0
