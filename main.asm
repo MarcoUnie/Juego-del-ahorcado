@@ -82,6 +82,12 @@ check_letter endp
     print_newline endp
     
     read_letter proc
+    cmp al, 'a'
+    jb skip_convert
+    cmp al, 'z'
+    ja skip_convert
+    sub al, 20h
+    skip_convert:
     mov ah, 01h
     int 21h
     mov input, al
