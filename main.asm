@@ -16,6 +16,9 @@
     lose_msg db "PERDISTE!$",13,10
     used_letters db 10 dup('$')
     used_index db 0
+    word1 db "GATO$"
+    word2 db "PERRO$"
+    restart_msg db "Jugar otra vez? S/N$"
 
 game_loop:
     cmp attempts, 0
